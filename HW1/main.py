@@ -107,7 +107,24 @@ def dictswork():
             output[i] = b[i]
     print("Joined dictionary: {}".format(output))
 
+def counter(number):
+    i = 2
+    end = 0
+    output = []
+    while i * i <= number:
+        while number % i == end:
+            output.append(i)
+            number = number / i
+        i += 1
+    if number > 1:
+        output.append(int(number))
+    
+    outString = " * ".join(str(i) for i in output)
+    print("Answer: {}".format(outString))
+
 if __name__ == "__main__":
     listswork()
     dictswork()
+    number = int(input("Enter number: "))
+    counter(number)
     
