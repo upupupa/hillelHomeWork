@@ -75,16 +75,39 @@ def listswork():
             continue
         else:
             lx.append(i)
+    print("Unique list saved order {}".format(lx))
     lx.sort()
     print("Unique list sorted {}".format(lx))
 
-    lx = []
-    for i in l:
-        if i in lx:
-            continue
+def dictswork():
+    a = {'a': 1, 'b': 4, 't': 67}
+    b = {'c': 4, 'e': 1, 'a': 4, 't': 7, 'y': 11}
+    output = []
+    aKeys = a.keys()
+    for i in aKeys:
+        if i in b.keys():
+            output.append(i)
+    print("Keys that repeat: {}".format(output))
+
+    output = []
+    bKeys = b.keys()
+    for i in bKeys:
+        if i not in a.keys():
+            output.append(i)
+    print("Unique keys in dict b: {}".format(output))
+
+    output = {}
+    for i in aKeys:
+        if i in b.keys():
+            output[i] = a[i] + b[i]
         else:
-            lx.append(i)
-    print("Unique list saved order {}".format(lx))
+            output[i] = a[i]
+    for i in bKeys:
+        if i not in a.keys():
+            output[i] = b[i]
+    print("Joined dictionary: {}".format(output))
 
 if __name__ == "__main__":
     listswork()
+    dictswork()
+    
