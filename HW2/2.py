@@ -9,7 +9,7 @@ def sortedArr(search):
 
     while start<=end and not found:
         mid = (start + end) // 2
-        if l[mid] is search:
+        if l[mid] == search:
             found = True
         else:
             if search < l[mid]:
