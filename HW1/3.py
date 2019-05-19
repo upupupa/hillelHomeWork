@@ -20,7 +20,24 @@ def counter(number):
         i += 1
     if number > 1:
         output.append(int(number))
-    outString = " * ".join(str(i) for i in output)
+    flag = 0
+    factor = ""
+    cleanOutput = []
+    for j in range(0, len(output)):
+        flag = output[j]
+        if flag is "SKIP":
+            continue
+        counter = 1
+        for k in range(j+1, len(output)):
+            if flag == output[k]:
+                counter+=1
+                output[k] = "SKIP"
+        if counter > 1:
+            factor = "{}^{}".format(flag, counter)
+        else:
+            factor = "{}".format(flag)
+        cleanOutput.append(factor)
+    outString = " * ".join(str(i) for i in cleanOutput)    
     print("Answer: {}".format(outString))
 
 if __name__ == "__main__":
