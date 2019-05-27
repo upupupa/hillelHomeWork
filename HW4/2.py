@@ -17,11 +17,14 @@ def evenbin(l):
     else:
         return 0
 
+def multiply(l, sumofl):
+    return l[-2]*sumofl
+
 if __name__ == "__main__":
     lstr = input("List: ")
     l = lstr.split(" ")
     lint = [int(i) for i in l]
     evenl = list(map(evenbin, lint))
     sumofl = sum(evenl)
-    answer = sumofl * lint[-2]
+    answer = multiply(lint, sumofl)
     print("Sum of even numbers (bin) = {}\n{} * {} = {}\nAnswer is: {}".format(sumofl, sumofl, lint[-2], answer, answer))
