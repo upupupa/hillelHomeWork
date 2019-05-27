@@ -34,14 +34,6 @@ def bubblesort(l):
                 l[i] = flag
     return l
 
-def bubblesortLambda(l):
-    flag = None
-    output = []
-    for i in range(0, len(l)):
-        for j in range(0, len(l)-1):
-            flag = lambda x: l[i]["price"] > l[j]["price"]
-    return output
-
 if __name__ == "__main__":
     autos = [
         {"brand": "Ford", "model": "Mustang", "year": 1964, "price": 4000},
@@ -54,7 +46,8 @@ if __name__ == "__main__":
         {"brand": "BMW", "model": "X5", "year": 2010, "price": 7500},
         {"brand": "Renault", "model": "Megane", "year": 1999, "price": 2300}
     ]
-    funcsortedAutos = bubblesort(autos)
-    print(funcsortedAutos)
-    lamdasortedAutos = bubblesortLambda(autos)
-    print(lamdasortedAutos)
+    replicaAutos = autos[:]
+    print(autos)
+    print(bubblesort(replicaAutos))
+    lambdasortedAutos = sorted(list(filter(lambda x: x["price"] is not None, autos)), key=lambda y: y["price"], reverse=True)
+    print(lambdasortedAutos)
