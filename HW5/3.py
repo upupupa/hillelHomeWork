@@ -48,6 +48,8 @@ def lru_cache(func):
     
     def cache_clear():
         lru_cache.cache.clear()
+        lru_cache.func_usage = 0
+        lru_cache.cache_usage = 0
         lru_cache.lifetime = 0
         print("Cache cleared")
     wrapper.cache_clear = cache_clear
