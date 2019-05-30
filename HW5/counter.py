@@ -1,5 +1,5 @@
 #!/bin/usr/python3
-# -*- encoding: utf-8 -*-
+# -*- coding: utf-8 -*-
 
 def countCalls(func):
     count = 1
