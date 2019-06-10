@@ -48,7 +48,7 @@ class Jsonreader():
     
     def getRelPath(self):
         try:
-            relpath = os.path.relpath(self.path, start=os.curdir)
+            relpath = "~/{}".format(os.path.relpath(self.path, start=os.curdir))
         except Exception:
             print("no such file")
             return -1
@@ -67,5 +67,7 @@ if __name__ == "__main__":
     b = Jsonreader("./jsons/b.json")
     c = Jsonreader("./jsons/c.json") #by default not exist
     ab = Jsonreader("./jsons/ab.json") #to combine a and b
-    ab.jsonData = ab.combine(a.readjfile(), b.readjfile())
-    ab.writejfile(ab.jsonData)
+    # ab.jsonData = ab.combine(a.readjfile(), b.readjfile())
+    # ab.writejfile(ab.jsonData)
+    print(ab.getAbsPath())
+    print(ab.getRelPath())
