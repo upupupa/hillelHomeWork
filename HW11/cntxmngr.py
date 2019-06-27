@@ -20,12 +20,13 @@ def timer():
         print("time: {:.2f}".format(result))
 
 def listgen(count):
-    with timer() as t:
-        p = product(ascii_letters, repeat=count)
-        l = []
-        for i in p:
-            l.append(i)
+    p = product(ascii_letters, repeat=count)
+    l = []
+    for i in p:
+        l.append(i)
     print("done")
 
 if __name__ == "__main__":
-    listgen(4)
+    with timer() as t:
+        listgen(4) #если ставлю больше 4 процесс убивается, почему?
+    
